@@ -1,16 +1,19 @@
 name := "Example"
 
-scalaVersion := "2.11.2"
+scalaVersion := "2.11.5"
 
 version := "0.1-SNAPSHOT"
 
 libraryDependencies ++= Seq(
-    "org.scala-lang.modules.scalajs" %% "scalajs-jasmine-test-framework" % scalaJSVersion % "test"
+ "org.monifu" %%% "minitest" % "0.10" % "test"
 )
 
+testFrameworks += new TestFramework("minitest.runner.Framework")
+
 // Turn this project into a Scala.js project by importing these settings
-scalaJSSettings
 
-ScalaJSKeys.persistLauncher := true
+enablePlugins(ScalaJSPlugin)
 
-ScalaJSKeys.persistLauncher in Test := false
+persistLauncher := true
+
+persistLauncher in Test := false

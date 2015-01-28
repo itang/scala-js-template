@@ -2,18 +2,15 @@ package example
 
 import scala.scalajs.js
 import js.Dynamic.{ global => g }
-import scala.scalajs.test.JasmineTest
+import minitest._
 
-object ScalaJSExampleTest extends JasmineTest {
+object ScalaJSExampleTest extends SimpleTestSuite {
 
-  describe("ScalaJSExample") {
+  test("ScalaJSExample should implement square()") {
+    import ScalaJSExample._
 
-    it("should implement square()") {
-      import ScalaJSExample._
-
-      expect(square(0)).toBe(0)
-      expect(square(4)).toBe(16)
-      expect(square(-5)).toBe(25)
-    }
+    assertEquals(square(0), 0)
+    assertEquals(square(4), 16)
+    assertEquals(square(-5), 25)
   }
 }
