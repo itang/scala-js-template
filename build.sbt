@@ -5,7 +5,7 @@ scalaVersion := "2.11.5"
 version := "0.1-SNAPSHOT"
 
 libraryDependencies ++= Seq(
- "org.monifu" %%% "minitest" % "0.10" % "test"
+ "org.monifu" %%% "minitest" % "0.11" % "test"
 )
 
 testFrameworks += new TestFramework("minitest.runner.Framework")
