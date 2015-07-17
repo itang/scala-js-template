@@ -1,11 +1,11 @@
 name := "Example"
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.11.7"
 
 version := "0.1-SNAPSHOT"
 
 libraryDependencies ++= Seq(
- "org.monifu" %%% "minitest" % "0.11" % "test"
+ "org.monifu" %%% "minitest" % "0.12" % "test"
 )
 
 testFrameworks += new TestFramework("minitest.runner.Framework")
