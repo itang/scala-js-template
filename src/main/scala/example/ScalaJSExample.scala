@@ -1,10 +1,9 @@
 package example
 
 import org.scalajs.dom.{document => g}
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
-import org.scalajs.jquery.jQuery
+import org.querki.jquery._
 
 
 @JSExportTopLevel("example.ScalaJSExample")
@@ -14,9 +13,9 @@ object ScalaJSExample {
     val paragraph = g.createElement("p")
     val s = "hello"
     paragraph.innerHTML = s"<strong>It works!</strong> ${s} ${new js.Date()}"
-    $("playground").appendChild(paragraph)
+    $("playground").append(paragraph)
 
-    jQuery("body").append("<div><h2>Append from jQuery</div></h2>")
+    $("body").append("<div><h2>Append from jQuery</div></h2>")
   }
 
   /**
@@ -30,6 +29,3 @@ object ScalaJSExample {
   }
 }
 
-object $ {
-  def apply(id: String) = g.getElementById(id)
-}
