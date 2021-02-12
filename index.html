@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Example Scala.js application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
 
+<head>
+	<title>Example Scala.js application</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
 	<h1>Example Scala.js application - optimized version</h1>
 
 	<p>After having compiled and optimized properly the code for the
@@ -13,13 +14,17 @@
 		herebelow. See README.md for detailed explanations.</p>
 
 	<div id="playground"></div>
-	<script type="text/javascript" src="./target/scala-2.12/example-jsdeps.min.js"></script>
-	<script type="text/javascript" src="./target/scala-2.12/example-opt.js"></script>
+
+	<button id="click-me-button" type="button" onclick="addClickedMessage()">
+		Click me!
+	</button>
+
+	<script type="text/javascript" src="./target/scala-2.13/scalajs-bundler/main/example-opt-bundle.js"></script>
 
 	<script>
-		alert(example.ScalaJSExample);
-		var ret = example.ScalaJSExample.square(10);
-		alert(ret);
+		console.log(ScalaJSExample);
+		var ret = ScalaJSExample.square(10);
+		console.log(ret);
 	</script>
 </body>
 </html>

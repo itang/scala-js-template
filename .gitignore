@@ -9,4 +9,17 @@ target/
 .cache-tests
 
 .idea/
+*.iml
+
 .metals/
+
+.vscode
+
+project/target
+project/.bloop
+project/project
+
+.bloop
+.bsp
+
+node_modules/

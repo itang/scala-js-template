@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Example Scala.js application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Example Scala.js application</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+
 <body>
 
   <h1>Example Scala.js application - fast-opt version</h1>
@@ -13,13 +15,21 @@
 
   <div id="playground"></div>
 
-  <script type="text/javascript" src="./target/scala-2.12/example-jsdeps.js"></script>
-  <script type="text/javascript" src="./target/scala-2.12/example-fastopt.js"></script>
+  <button id="click-me-button" type="button" onclick="addClickedMessage()">
+    Click me!
+  </button>
 
-	<script>
-		alert(example.ScalaJSExample);
-		var ret = example.ScalaJSExample.square(10);
-		alert(ret);
-	</script>
+  <!--
+  <script type="text/javascript" src="./target/scala-2.13/scalajs-bundler/main/example-fastopt-library.js"></script>
+  <script type="text/javascript" src="./target/scala-2.13/scalajs-bundler/main/example-fastopt-loader.js"></script>
+  <script type="text/javascript" src="./target/scala-2.13/scalajs-bundler/main/example-fastopt.js"></script>
+  -->
+  <script type="text/javascript" src="./target/scala-2.13/scalajs-bundler/main/example-fastopt-bundle.js"></script>
+
+  <script>
+    alert(ScalaJSExample);
+    var ret = ScalaJSExample.square(10);
+    alert(ret);
+  </script>
 </body>
 </html>

@@ -1,23 +1,37 @@
+enablePlugins(ScalaJSPlugin)
+//enablePlugins(JSDependenciesPlugin)
+enablePlugins(ScalaJSBundlerPlugin)
+
 name := "Example"
-
-scalaVersion := "2.12.10"
-
+scalaVersion := "2.13.4"
 version := "0.1-SNAPSHOT"
 
-enablePlugins(ScalaJSPlugin)
-
-scalaJSUseMainModuleInitializer := true
-// scalaJSStage in Global := FullOptStage
-
+//npm install source-map-support
 libraryDependencies ++= Seq(
-  "org.scala-js" %%% "scalajs-dom" % "0.9.8",
-  "org.querki" %%% "jquery-facade" % "1.2",
-  "io.monix" %% "minitest" % "2.0.0" % "test"
+  "org.scala-js" %%% "scalajs-dom" % "1.1.0",
+  "org.querki" %%% "jquery-facade" % "2.0",
+
+  "com.lihaoyi" %%% "utest" % "0.7.7" % "test"
 )
 
-skip in packageJSDependencies := false
 
-jsDependencies +=
-  "org.webjars" % "jquery" % "2.2.1" / "jquery.js" minified "jquery.min.js"
+//skip in packageJSDependencies := false
+//jsDependencies +=
+//  "org.webjars" % "jquery" % "3.5.1" / "jquery.js" minified "jquery.min.js"
+npmDependencies in Compile ++= Seq(
+  "jquery" -> "3.5.1"
+)
 
-testFrameworks += new TestFramework("minitest.runner.Framework")
+//webpackBundlingMode := BundlingMode.LibraryOnly()
+// https://scalacenter.github.io/scalajs-bundler/cookbook.html#several-entry-points
+webpackBundlingMode := BundlingMode.LibraryAndApplication()
+
+//This is an application with a main method
+scalaJSUseMainModuleInitializer := true
+
+//npm install jsdom
+jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv()
+requireJsDomEnv in Test := true
+
+//test
+testFrameworks += new TestFramework("utest.runner.Framework")
