@@ -3,7 +3,7 @@ enablePlugins(ScalaJSPlugin)
 enablePlugins(ScalaJSBundlerPlugin)
 
 name := "Example"
-scalaVersion := "2.13.4"
+scalaVersion := "2.13.5"
 version := "0.1-SNAPSHOT"
 
 //npm install source-map-support
